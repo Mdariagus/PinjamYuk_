@@ -1,11 +1,17 @@
 import './style.css';
 
 import { getProducts } from './store.js';
-import { renderCatalog } from './ui.js';
+import { renderCatalog, renderCategoryFilter, initCatalogControls, renderFeatured, initCategoryTiles, initNavigation, initMobileMenu, initDetailRouting } from './ui.js';
 
 function init() {
-  const products = getProducts();
-  renderCatalog(products);
+  renderCategoryFilter();
+  renderCatalog(getProducts());
+  renderFeatured(getProducts());
+  initCatalogControls();
+  initCategoryTiles();
+  initNavigation();
+  initMobileMenu();
+  initDetailRouting();
 }
 
 init();

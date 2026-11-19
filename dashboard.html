@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dashboard demo pengelola katalog PinjamYuk." />
+    <meta name="theme-color" content="#f8f7f2" />
+    <title>PinjamYuk — Dashboard Pengelola</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header id="site-header" class="site-header">
+        <div class="container header-inner">
+          <a class="wordmark" href="index.html" aria-label="PinjamYuk beranda">
+            <span class="wordmark-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="13" fill="currentColor"/>
+                <path d="M11 20.5L20 12L29 20.5V29H11V20.5Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M16 29V21H24V29" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Pinjam<span class="wordmark-accent">Yuk!</span></span>
+          </a>
+
+          <nav class="nav" aria-label="Navigasi utama">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#katalog">Katalog</a>
+            <a class="is-active" href="dashboard.html">Dashboard</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <div class="container">
+          <section class="dashboard-header">
+            <span class="section-eyebrow">DASHBOARD PENGELOLA</span>
+            <h1>Dashboard Pengelola</h1>
+            <p class="dashboard-mode-banner">
+              Mode demo: tidak ada login atau autentikasi. Data dapat diubah siapa pun di browser ini.
+            </p>
+          </section>
+
+          <section class="dashboard-summary" aria-label="Ringkasan katalog">
+            <div class="summary-card">
+              <span class="summary-label">Total Produk</span>
+              <strong id="summary-total-products" class="summary-value">0</strong>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Total Stok</span>
+              <strong id="summary-total-stock" class="summary-value">0</strong>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Total Kategori</span>
+              <strong id="summary-total-categories" class="summary-value">0</strong>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Stok Habis</span>
+              <strong id="summary-out-of-stock" class="summary-value">0</strong>
+            </div>
+          </section>
+
+          <section class="dashboard-toolbar">
+            <button type="button" id="dashboard-add" class="button button-primary">
+              Tambah Produk
+            </button>
+            <button type="button" id="dashboard-reset" class="button button-secondary">
+              Reset Data Demo
+            </button>
+          </section>
+
+          <section class="dashboard-list" aria-label="Daftar produk">
+            <div class="dashboard-table-wrap">
+              <table class="dashboard-table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Produk/Jasa</th>
+                    <th>Kategori</th>
+                    <th>Harga Sewa</th>
+                    <th>Stok</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-table-body"></tbody>
+              </table>
+            </div>
+            <p id="dashboard-empty" class="dashboard-empty is-hidden">
+              Belum ada produk. Tambahkan produk baru untuk memulai.
+            </p>
+          </section>
+
+          <section id="dashboard-form-section" class="dashboard-form-section is-hidden" aria-label="Form produk">
+            <h2 id="dashboard-form-title">Tambah Produk</h2>
+            <form id="dashboard-form" novalidate>
+              <input type="hidden" id="dashboard-form-id" />
+
+              <div class="form-field">
+                <label for="dashboard-nama">Nama Produk/Jasa</label>
+                <input type="text" id="dashboard-nama" required />
+                <p class="form-error" id="error-nama"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="dashboard-kategori">Kategori</label>
+                <select id="dashboard-kategori" required>
+                  <option value="Barang">Barang</option>
+                  <option value="Jasa">Jasa</option>
+                </select>
+                <p class="form-error" id="error-kategori"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="dashboard-harga">Harga Sewa</label>
+                <input type="number" id="dashboard-harga" min="0" step="1" required />
+                <p class="form-error" id="error-harga"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="dashboard-stok">Stok</label>
+                <input type="number" id="dashboard-stok" min="0" step="1" required />
+                <p class="form-error" id="error-stok"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="dashboard-deskripsi">Deskripsi</label>
+                <textarea id="dashboard-deskripsi" rows="3" required></textarea>
+                <p class="form-error" id="error-deskripsi"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="dashboard-image">Gambar Produk (URL/path lokal)</label>
+                <input type="text" id="dashboard-image" placeholder="/images/contoh.jpg" />
+                <p class="form-error" id="error-image"></p>
+              </div>
+
+              <div class="form-field form-field-checkbox">
+                <label>
+                  <input type="checkbox" id="dashboard-unggulan" />
+                  Status Unggulan
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="button button-primary">Simpan</button>
+                <button type="button" id="dashboard-cancel" class="button button-secondary">Batal</button>
+              </div>
+              <p id="dashboard-form-message" class="form-message"></p>
+            </form>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="footer-bottom">
+            <p>© 2026 PinjamYuk. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Confirm dialog -->
+    <dialog id="dashboard-confirm-dialog" class="confirm-dialog">
+      <form method="dialog" class="confirm-dialog-inner">
+        <h2 id="confirm-dialog-title">Konfirmasi</h2>
+        <p id="confirm-dialog-message">Apakah Anda yakin?</p>
+        <div class="confirm-dialog-actions">
+          <button type="submit" value="confirm" class="button button-primary" id="confirm-dialog-confirm">Hapus</button>
+          <button type="submit" value="cancel" class="button button-secondary" id="confirm-dialog-cancel">Batal</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="/src/dashboard.js"></script>
+  </body>
+</html>

@@ -1,5 +1,12 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // Konfigurasi Vite default. Entry multipage akan ditambahkan saat dashboard dibuat.
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        dashboard: 'dashboard.html',
+      },
+    },
+  },
 });

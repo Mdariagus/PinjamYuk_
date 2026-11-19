@@ -1,4 +1,4 @@
-import { products as seedProducts } from './products.js';
+import { products as seedProducts, CATEGORIES } from './products.js';
 
 export const STORAGE_KEY = 'pinjamYuk.products.v1';
 
@@ -6,7 +6,7 @@ function cloneList(list) {
   return list.map((product) => ({ ...product }));
 }
 
-function isValidProduct(value) {
+export function validateProduct(value) {
   if (value === null || typeof value !== 'object') {
     return false;
   }
@@ -16,7 +16,7 @@ function isValidProduct(value) {
     id.trim().length > 0 &&
     typeof nama === 'string' &&
     nama.trim().length > 0 &&
-    (kategori === 'Barang' || kategori === 'Jasa') &&
+    CATEGORIES.includes(kategori) &&
     typeof harga === 'number' &&
     Number.isFinite(harga) &&
     harga >= 0 &&
@@ -35,17 +35,31 @@ function isValidList(value) {
   if (value.length === 0) {
     return true;
   }
-  return value.every((item) => isValidProduct(item));
+  return value.every((item) => validateProduct(item));
+}
+
+export function parseStoredProducts(raw) {
+  if (typeof raw !== 'string') {
+    return null;
+  }
+  try {
+    const parsed = JSON.parse(raw);
+    return isValidList(parsed) ? parsed : null;
+  } catch (error) {
+    return null;
+  }
 }
 
 function readStored() {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return null;
+  }
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (raw === null) {
       return null;
     }
-    const parsed = JSON.parse(raw);
-    return isValidList(parsed) ? parsed : null;
+    return parseStoredProducts(raw);
   } catch (error) {
     return null;
   }
@@ -71,7 +85,48 @@ function isStorageAvailable() {
   }
 }
 
-let products = readStored() ?? cloneList(seedProducts);
+function mergeSeedProducts(stored) {
+  if (!Array.isArray(stored)) {
+    return cloneList(seedProducts);
+  }
+
+  const seedById = new Map(seedProducts.map((product) => [product.id, product]));
+  let changed = false;
+
+  const merged = stored.map((product) => {
+    const seed = seedById.get(product.id);
+    if (!seed) {
+      return { ...product };
+    }
+
+    const next = { ...product };
+    const currentImage = String(next.imageUrl ?? '').trim();
+    const seedImage = String(seed.imageUrl ?? '').trim();
+
+    // Migrate missing or old svg image paths from seed data.
+    if (seedImage && (!currentImage || currentImage.endsWith('.svg'))) {
+      next.imageUrl = seedImage;
+      changed = true;
+    }
+
+    return next;
+  });
+
+  const existingIds = new Set(merged.map((product) => product.id));
+  const missingSeeds = seedProducts.filter((product) => !existingIds.has(product.id));
+  if (missingSeeds.length > 0) {
+    merged.push(...cloneList(missingSeeds));
+    changed = true;
+  }
+
+  if (changed) {
+    writeStored(merged);
+  }
+  return merged;
+}
+
+const storedProducts = readStored();
+let products = storedProducts === null ? cloneList(seedProducts) : mergeSeedProducts(storedProducts);
 
 export function getProducts() {
   return products;

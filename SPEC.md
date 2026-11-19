@@ -3,14 +3,16 @@
 > **Dokumen spesifikasi kebutuhan produk dan teknis (MVP)**  
 > Nama aplikasi: **PinjamYuk**  
 > Tagline: **Butuh? Pinjam Yuk!**  
-> Status: Spesifikasi sebelum implementasi  
-> Platform: Web app berbasis Vite + JavaScript vanilla
+> Status: Spesifikasi kebutuhan produk dan teknis (MVP) yang sedang diselaraskan dengan arsitektur desain baru sebelum implementasi redesign.  
+> Platform: Web app berbasis Vite + JavaScript vanilla  
 
 ---
 
 ## 1. Tujuan
 
 PinjamYuk adalah katalog digital untuk UMKM yang menawarkan **penyewaan barang dan jasa**. Aplikasi membantu calon penyewa menemukan penawaran, melihat informasi penting, menyaring katalog, lalu menghubungi pengelola melalui WhatsApp.
+
+Desain produk sedang ditetapkan ulang dengan arsitektur **Modern Rental Marketplace — Premium, Warm & Clean**, sebagaimana tertuang secara lengkap di `UI-SPEC.md`. Perubahan desain tidak mengubah cakupan fungsional MVP yang sudah disepakati.
 
 Pada MVP, aplikasi berjalan sepenuhnya di sisi browser. Data contoh dan perubahan katalog disimpan di `localStorage`, sehingga dapat digunakan untuk demonstrasi tanpa backend, API, database server, atau sistem akun.
 
@@ -99,14 +101,19 @@ Sorting tidak boleh mengubah data asli yang disimpan. Urutan hanya berlaku pada 
 ### 3.5 Pemesanan melalui WhatsApp
 
 - Setiap penawaran memiliki tombol “Pesan via WhatsApp”.
-- Tombol membuka tautan WhatsApp pengelola dengan pesan awal yang menyebut nama penawaran.
+- Tombol membuka tautan WhatsApp pengelola dengan pesan awal yang menyebut data penawaran (nama, kategori, harga, dan stok yang tersedia).
 - Nomor WhatsApp pengelola merupakan konfigurasi publik aplikasi, bukan rahasia. Gunakan nomor contoh/nonpribadi selama demo dan ganti dengan nomor bisnis yang telah disetujui sebelum dipublikasikan.
 - Format tautan harus menggunakan format internasional tanpa tanda `+`, spasi, atau tanda baca pada nomor.
 - Jika nomor belum dikonfigurasi, tampilkan informasi bahwa kontak belum tersedia dan jangan membuka tautan yang tidak valid.
 - Tombol WhatsApp adalah pengalihan komunikasi; aplikasi tidak mengklaim bahwa pesanan telah dibuat atau dikonfirmasi.
 
 Contoh isi pesan awal:
-> Halo, saya tertarik dengan [nama penawaran] di PinjamYuk. Apakah masih tersedia? Saya ingin bertanya mengenai penyewaannya.
+> Halo, saya tertarik untuk memesan penaworan berikut:
+> Nama: [nama penawaran]
+> Kategori: [kategori]
+> Harga: Rp[harga]
+> Stok tersedia: [stok]
+> Apakah penaworan ini masih tersedia? Terima kasih.
 
 ### 3.6 Dashboard demo CRUD
 

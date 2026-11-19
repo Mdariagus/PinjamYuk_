@@ -1,24 +1,660 @@
+
 <!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="PinjamYuk - Katalog penyewaan barang dan jasa UMKM." />
-    <title>PinjamYuk</title>
+
+    <meta
+      name="description"
+      content="PinjamYuk - Temukan barang dan jasa persewaan UMKM dengan mudah. Hubungi pemilik langsung melalui WhatsApp."
+    />
+
+    <meta name="theme-color" content="#f8f7f2" />
+
+    <title>PinjamYuk — Butuh? Pinjam Yuk!</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <div id="app">
+
+      <!-- ================= HEADER ================= -->
+      <header id="site-header" class="site-header">
+        <div class="container header-inner">
+
+          <a class="wordmark" href="#beranda" aria-label="PinjamYuk beranda">
+            <span class="wordmark-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="13" fill="currentColor"/>
+                <path
+                  d="M11 20.5L20 12L29 20.5V29H11V20.5Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 29V21H24V29"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+
+            <span>Pinjam<span class="wordmark-accent">Yuk.</span></span>
+          </a>
+
+          <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            type="button"
+            aria-label="Buka navigasi"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav
+            class="nav"
+            id="main-navigation"
+            aria-label="Navigasi utama"
+          >
+            <a class="is-active" href="#beranda">Beranda</a>
+            <a href="#kategori">Kategori</a>
+            <a href="#katalog">Jelajahi</a>
+            <a href="#cara-kerja">Cara Kerja</a>
+            <a href="dashboard.html">Dashboard</a>
+          </nav>
+
+          <a class="header-cta" href="#katalog">
+            Mulai Jelajahi
+            <span aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+      </header>
+
       <main>
-        <section id="katalog" aria-labelledby="katalog-judul">
-          <div class="katalog-header">
-            <h2 id="katalog-judul">Katalog Penawaran</h2>
-            <p class="section-subtitle">Penawaran contoh dari UMKM lokal.</p>
+
+        <!-- ================= HERO ================= -->
+        <section id="beranda" class="hero">
+          <div class="container hero-inner">
+
+            <div class="hero-copy">
+
+              <div class="hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                PLATFORM PERSEWAAN UMKM
+              </div>
+
+              <h1>
+                Semua yang<br />
+                kamu butuhkan,<br />
+                <span class="hero-highlight">tinggal pinjam.</span>
+              </h1>
+
+              <p class="hero-description">
+                Temukan barang dan jasa dari penyedia UMKM.
+                Lebih praktis, lebih hemat, dan terhubung langsung
+                dengan pemiliknya.
+              </p>
+
+              <div class="hero-actions">
+                <a class="button button-primary button-lg" href="#katalog">
+                  Jelajahi Katalog
+                  <span aria-hidden="true">→</span>
+                </a>
+
+                <a class="hero-secondary-link" href="#cara-kerja">
+                  Pelajari cara kerja
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+
+              <div class="hero-trust">
+                <p>
+                  <strong>Praktis dan mudah</strong>
+                  <span>Hubungi penyedia secara langsung</span>
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Hero illustration -->
+            <div class="hero-visual" aria-label="Ilustrasi barang dan jasa persewaan">
+
+              <div class="visual-background-shape"></div>
+
+              <div class="visual-floating visual-floating-top">
+                <span class="floating-icon">✦</span>
+                <span>Temukan kebutuhanmu</span>
+              </div>
+
+              <div class="hero-illustration">
+
+                <svg
+                  viewBox="0 0 560 470"
+                  role="img"
+                  aria-label="Ilustrasi seseorang membawa perlengkapan untuk disewakan"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Background -->
+                  <circle cx="280" cy="230" r="190" fill="#E8EBDD"/>
+                  <circle cx="280" cy="230" r="150" fill="#D8E0CC"/>
+
+                  <!-- Decorative elements -->
+                  <circle cx="95" cy="125" r="13" fill="#C47C59"/>
+                  <circle cx="453" cy="100" r="9" fill="#69764D"/>
+                  <path d="M430 320L444 292L458 320H430Z" fill="#C47C59"/>
+                  <path d="M105 340L118 314L131 340H105Z" fill="#69764D"/>
+
+                  <!-- Ground -->
+                  <ellipse cx="280" cy="404" rx="180" ry="18" fill="#B9C4A9"/>
+
+                  <!-- Backpack -->
+                  <rect x="335" y="185" width="95" height="130" rx="26" fill="#C47C59"/>
+                  <rect x="350" y="205" width="65" height="90" rx="16" fill="#A96040"/>
+                  <path d="M350 210C350 185 370 172 382 172C405 172 415 190 415 210" stroke="#394432" stroke-width="9" fill="none" stroke-linecap="round"/>
+
+                  <!-- Person body -->
+                  <path d="M204 194C207 169 226 154 251 154H287C316 154 334 174 338 202L354 323H187L204 194Z" fill="#69764D"/>
+                  <path d="M213 207L192 302" stroke="#394432" stroke-width="18" stroke-linecap="round"/>
+                  <path d="M324 210L359 284" stroke="#394432" stroke-width="18" stroke-linecap="round"/>
+
+                  <!-- Head -->
+                  <circle cx="270" cy="111" r="55" fill="#D99A75"/>
+                  <path d="M216 112C216 70 239 48 275 48C310 48 327 74 324 109C304 94 285 89 268 91C248 94 232 102 216 112Z" fill="#394432"/>
+                  <path d="M244 120C250 125 256 125 262 120" stroke="#394432" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M280 120C286 125 292 125 298 120" stroke="#394432" stroke-width="4" stroke-linecap="round"/>
+
+                  <!-- Legs -->
+                  <path d="M220 316L207 374" stroke="#394432" stroke-width="25" stroke-linecap="round"/>
+                  <path d="M310 316L327 374" stroke="#394432" stroke-width="25" stroke-linecap="round"/>
+                  <path d="M204 374L180 387" stroke="#394432" stroke-width="18" stroke-linecap="round"/>
+                  <path d="M327 374L353 387" stroke="#394432" stroke-width="18" stroke-linecap="round"/>
+
+                  <!-- Camera -->
+                  <rect x="117" y="225" width="90" height="64" rx="13" fill="#394432"/>
+                  <rect x="135" y="210" width="37" height="18" rx="5" fill="#394432"/>
+                  <circle cx="162" cy="257" r="22" fill="#E9DFCE"/>
+                  <circle cx="162" cy="257" r="13" fill="#69764D"/>
+                  <circle cx="162" cy="257" r="6" fill="#394432"/>
+
+                  <!-- Package -->
+                  <rect x="390" y="328" width="78" height="65" rx="9" fill="#E9DFCE"/>
+                  <path d="M390 348L429 366L468 348" stroke="#C47C59" stroke-width="5" fill="none"/>
+                  <path d="M429 366V393" stroke="#C47C59" stroke-width="5"/>
+
+                  <!-- Sparkles -->
+                  <path d="M120 85V111M107 98H133" stroke="#C47C59" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M434 180V200M424 190H444" stroke="#69764D" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+
+              </div>
+
+              <div class="visual-floating visual-floating-bottom">
+                <span class="floating-check">✓</span>
+                <span>Langsung terhubung dengan pemilik</span>
+              </div>
+
+            </div>
+
           </div>
-          <p id="result-count" class="result-count" aria-live="polite">Menampilkan 8 penawaran</p>
-          <div id="product-grid" class="product-grid"></div>
         </section>
+
+        <!-- ================= BENEFIT STRIP ================= -->
+        <section class="benefit-strip" aria-label="Keunggulan PinjamYuk">
+          <div class="container benefit-inner">
+
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="M20 20L16 16"></path>
+                </svg>
+              </span>
+              <div class="benefit-text">
+                <strong>Mudah ditemukan</strong>
+                <span>Cari sesuai kebutuhan</span>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </span>
+              <div class="benefit-text">
+                <strong>Kontak langsung</strong>
+                <span>Terhubung via WhatsApp</span>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </span>
+              <div class="benefit-text">
+                <strong>Dukung UMKM lokal</strong>
+                <span>Bantu usaha sekitar berkembang</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================= KATEGORI ================= -->
+        <section id="kategori" class="section-kategori">
+          <div class="container">
+
+            <div class="section-heading">
+              <div>
+                <span class="section-eyebrow">JELAJAHI KEBUTUHANMU</span>
+                <h2>Apa yang Kamu Butuhkan?</h2>
+                <p class="section-subtitle">
+                  Temukan berbagai pilihan barang dan jasa dari penyedia UMKM.
+                </p>
+              </div>
+
+              <a class="text-link" href="#katalog">
+                Lihat semua
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="kategori-grid">
+
+              <button
+                type="button"
+                class="kategori-tile kategori-barang"
+                data-category="Barang"
+              >
+                <span class="kategori-content">
+                  <span class="kategori-label">KATEGORI BARANG</span>
+                  <strong>Barang</strong>
+                  <span class="kategori-description">
+                    Temukan perlengkapan dan berbagai barang yang bisa kamu pinjam.
+                  </span>
+                  <span class="kategori-cta">
+                    Jelajahi Barang
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </span>
+
+                <span class="kategori-art kategori-art-barang" aria-hidden="true">
+                  <svg viewBox="0 0 180 150" fill="none">
+                    <rect x="34" y="35" width="112" height="83" rx="17" fill="#394432"/>
+                    <rect x="47" y="48" width="86" height="58" rx="11" fill="#E9DFCE"/>
+                    <circle cx="90" cy="77" r="26" fill="#C47C59"/>
+                    <circle cx="90" cy="77" r="17" fill="#394432"/>
+                    <circle cx="90" cy="77" r="8" fill="#E9DFCE"/>
+                    <rect x="67" y="24" width="42" height="13" rx="5" fill="#69764D"/>
+                    <path d="M128 48L142 40" stroke="#C47C59" stroke-width="7" stroke-linecap="round"/>
+                    <circle cx="143" cy="28" r="8" fill="#C47C59"/>
+                  </svg>
+                </span>
+              </button>
+
+              <button
+                type="button"
+                class="kategori-tile kategori-jasa"
+                data-category="Jasa"
+              >
+                <span class="kategori-content">
+                  <span class="kategori-label">KATEGORI JASA</span>
+                  <strong>Jasa</strong>
+                  <span class="kategori-description">
+                    Temukan layanan dan bantuan profesional sesuai kebutuhanmu.
+                  </span>
+                  <span class="kategori-cta">
+                    Jelajahi Jasa
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </span>
+
+                <span class="kategori-art kategori-art-jasa" aria-hidden="true">
+                  <svg viewBox="0 0 180 150" fill="none">
+                    <circle cx="90" cy="69" r="48" fill="#D6DEC9"/>
+                    <circle cx="90" cy="55" r="22" fill="#C47C59"/>
+                    <path d="M51 120C54 91 68 80 90 80C112 80 126 91 129 120" fill="#394432"/>
+                    <path d="M74 53C80 59 86 59 92 53" stroke="#394432" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M98 53C104 59 110 59 116 53" stroke="#394432" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M29 36L35 22L41 36L55 42L41 48L35 62L29 48L15 42L29 36Z" fill="#C47C59"/>
+                    <circle cx="144" cy="100" r="10" fill="#69764D"/>
+                  </svg>
+                </span>
+              </button>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= UNGGULAN ================= -->
+        <section id="penawaran-unggulan" class="section-unggulan">
+          <div class="container">
+
+            <div class="section-heading">
+              <div>
+                <span class="section-eyebrow">PILIHAN UNTUKMU</span>
+                <h2>Pilihan untuk Kamu</h2>
+                <p class="section-subtitle">
+                  Temukan penawaran pilihan dari penyedia UMKM yang mungkin sesuai dengan kebutuhanmu.
+                </p>
+              </div>
+
+              <a class="text-link" href="#katalog">
+                Lihat Semua Penawaran
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div
+              id="featured-grid"
+              class="product-grid product-grid-featured"
+            ></div>
+
+            <div class="featured-cta">
+              <a class="button button-primary button-lg" href="#katalog">
+                Lihat Semua Penawaran
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================= CARA KERJA ================= -->
+        <section id="cara-kerja" class="section-cara-kerja">
+          <div class="container">
+
+            <div class="section-heading section-heading-centered">
+              <div>
+                <span class="section-eyebrow">MUDAH DAN PRAKTIS</span>
+                <h2>Semudah Itu!</h2>
+                <p class="section-subtitle">
+                  Mulai dari menemukan kebutuhan hingga menghubungi penyedia, semuanya bisa dilakukan dengan mudah.
+                </p>
+              </div>
+            </div>
+
+            <ol class="cara-kerja-list">
+
+              <li class="cara-kerja-item">
+                <span class="cara-kerja-number">01</span>
+                <div class="cara-kerja-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20L16 16"></path>
+                  </svg>
+                </div>
+                <h3>Cari Kebutuhanmu</h3>
+                <p>
+                  Jelajahi berbagai pilihan barang dan jasa yang tersedia di PinjamYuk.
+                </p>
+              </li>
+
+              <li class="cara-kerja-item">
+                <span class="cara-kerja-number">02</span>
+                <div class="cara-kerja-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                  </svg>
+                </div>
+                <h3>Pilih Penawaran</h3>
+                <p>
+                  Temukan penawaran yang sesuai dengan kebutuhan dan anggaranmu.
+                </p>
+              </li>
+
+              <li class="cara-kerja-item">
+                <span class="cara-kerja-number">03</span>
+                <div class="cara-kerja-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <h3>Hubungi Pemilik</h3>
+                <p>
+                  Hubungi penyedia secara langsung melalui WhatsApp untuk menanyakan ketersediaan.
+                </p>
+              </li>
+
+            </ol>
+
+            <div class="cara-kerja-cta">
+              <a class="button button-primary button-lg" href="#katalog">
+                Mulai Jelajahi
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= KATALOG ================= -->
+        <section id="katalog" class="section-katalog">
+          <div class="container">
+
+            <div class="catalog-heading">
+              <div>
+                <span class="section-eyebrow">KATALOG PINJAMYUK</span>
+                <h2>Jelajahi Kebutuhanmu</h2>
+                <p class="section-subtitle">
+                  Temukan berbagai pilihan barang dan jasa yang tersedia untuk disewa.
+                </p>
+              </div>
+
+              <div class="catalog-heading-note">
+                <span class="catalog-heading-dot"></span>
+                Pilih. Hubungi. Pinjam.
+              </div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="toolbar" id="toolbar">
+
+              <div class="toolbar-field toolbar-search">
+                <label class="field-label" for="search-input">
+                  Cari penawaran
+                </label>
+
+                <div class="search-box">
+                  <span class="search-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M20 20L16 16" />
+                    </svg>
+                  </span>
+
+                  <input
+                    type="search"
+                    id="search-input"
+                    class="search-input"
+                    placeholder="Cari nama atau deskripsi penawaran"
+                    autocomplete="off"
+                  />
+
+                  <button
+                    type="button"
+                    id="search-clear"
+                    class="search-clear is-hidden"
+                    aria-label="Hapus kata kunci"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+
+              <div class="toolbar-field">
+                <span class="field-label" id="category-filter-label">
+                  Kategori
+                </span>
+
+                <div
+                  id="category-filter"
+                  class="category-filter"
+                  role="group"
+                  aria-labelledby="category-filter-label"
+                ></div>
+              </div>
+
+              <div class="toolbar-field toolbar-sort">
+                <label class="field-label" for="sort-select">
+                  Urutkan
+                </label>
+
+                <select id="sort-select" class="sort-select">
+                  <option value="nama">Nama A–Z</option>
+                  <option value="harga-asc">Harga termurah</option>
+                  <option value="harga-desc">Harga termahal</option>
+                  <option value="stok-desc">Stok terbanyak</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Catalog result -->
+            <div class="catalog-result-header">
+              <p id="result-count" class="result-count" aria-live="polite">
+                Menampilkan 8 penawaran
+              </p>
+              <button
+                type="button"
+                id="reset-filter"
+                class="button button-secondary"
+              >
+                Reset filter
+              </button>
+            </div>
+
+            <div id="product-grid" class="product-grid"></div>
+
+          </div>
+        </section>
+
+        <!-- ================= DETAIL PRODUK ================= -->
+        <section id="detail-produk" class="section-detail">
+          <div class="container">
+            <div id="detail-root"></div>
+          </div>
+        </section>
+
+        <!-- ================= CTA ================= -->
+        <section class="closing-cta">
+          <div class="container closing-cta-inner">
+
+            <div class="closing-cta-copy">
+              <span class="section-eyebrow">PINJAM LEBIH MUDAH</span>
+              <h2>
+                Kebutuhanmu,<br />
+                solusinya ada di sini.
+              </h2>
+              <p>
+                Mulai jelajahi berbagai penawaran dan temukan
+                yang paling sesuai untukmu.
+              </p>
+
+              <a class="button button-light button-lg" href="#katalog">
+                Jelajahi Sekarang
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="closing-cta-art" aria-hidden="true">
+              <svg viewBox="0 0 300 230" fill="none">
+                <circle cx="150" cy="115" r="100" fill="#536144"/>
+                <rect x="82" y="65" width="136" height="105" rx="18" fill="#E9DFCE"/>
+                <rect x="101" y="84" width="98" height="67" rx="10" fill="#C47C59"/>
+                <circle cx="150" cy="117" r="28" fill="#394432"/>
+                <circle cx="150" cy="117" r="15" fill="#E9DFCE"/>
+                <path d="M115 65V52C115 40 124 31 136 31H164C176 31 185 40 185 52V65" stroke="#E9DFCE" stroke-width="10" stroke-linecap="round"/>
+                <path d="M36 45L43 27L50 45L68 52L50 59L43 77L36 59L18 52L36 45Z" fill="#D99A75"/>
+                <circle cx="252" cy="172" r="12" fill="#D99A75"/>
+              </svg>
+            </div>
+
+          </div>
+        </section>
+
       </main>
+
+      <!-- ================= FOOTER ================= -->
+      <footer id="site-footer" class="site-footer">
+        <div class="container">
+
+          <div class="footer-main">
+
+            <div class="footer-brand-group">
+              <a class="wordmark footer-wordmark" href="#beranda">
+                <span class="wordmark-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="13" fill="currentColor"/>
+                    <path
+                      d="M11 20.5L20 12L29 20.5V29H11V20.5Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M16 29V21H24V29"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span>Pinjam<span class="wordmark-accent">Yuk!</span></span>
+              </a>
+
+              <p class="footer-tagline">Butuh? Pinjam Yuk!</p>
+              <p class="footer-description">
+                Platform yang membantu kamu menemukan barang dan jasa dari penyedia UMKM dengan lebih mudah dan praktis.
+              </p>
+            </div>
+
+            <div class="footer-links-group">
+              <strong>Jelajahi</strong>
+              <a href="#beranda">Beranda</a>
+              <a href="#kategori">Kategori</a>
+              <a href="#penawaran-unggulan">Penawaran</a>
+              <a href="#cara-kerja">Cara Kerja</a>
+              <a href="#katalog">Katalog</a>
+            </div>
+
+            <div class="footer-links-group">
+              <strong>Tentang PinjamYuk</strong>
+              <span>Platform katalog penyewaan UMKM.</span>
+              <span>Temukan barang dan jasa.</span>
+              <span>Hubungi penyedia secara langsung.</span>
+            </div>
+
+          </div>
+
+          <div class="footer-bottom">
+            <p>© 2026 PinjamYuk. All rights reserved.</p>
+          </div>
+
+        </div>
+      </footer>
+
     </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
